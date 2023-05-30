@@ -32,4 +32,4 @@ try:
         else:
             print(f"El terreno mas grande es el rectangular {a_rectangulo}")
 except:
-    print(f"Los datos deben ser numericos")
+    print(f"Los datos ingresados deben ser numericos")
