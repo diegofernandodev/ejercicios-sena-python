@@ -12,9 +12,9 @@ def numeroCentral(valor_uno, valor_dos, valor_tres):
     elif valor_uno <= valor_tres <= valor_dos or valor_dos <= valor_tres <= valor_uno:
         print(f"{valor_tres} es el numero medio")
 
+lista_valor = []
+for i in range(1, 4, 1):
+    valor = int(input(f"Ingresa el valor {i} "))
+    lista_valor.append(valor)
 
-vr_uno = int(input("Ingresa el primer numero: "))
-vr_dos = int(input("Ingresa el segundo numero: "))
-vr_tres = int(input("Ingresa el tercer numero: "))
-
-numeroCentral(vr_uno, vr_dos, vr_tres)
+numeroCentral(lista_valor[0], lista_valor[1], lista_valor[2])

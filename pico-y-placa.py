@@ -3,22 +3,27 @@ print("           DIA DE PICO Y PLACA          ")
 print("========================================")
 print("\n")
 
-try:
-    placa = input("Ingresa la placa de tu vehiculo (ejm: DFE48F): ")
+import re
 
-    placa_lista = [char for char in placa]
-    if len(placa) != 6:
-        print("Los datos de la placa no son correctos ")
-    else:
-        if int(placa_lista[4]) == 9 or int(placa_lista[4]) == 0:
-            print("Tu dia de pico y placa es el dia jueves")
-        elif int(placa_lista[4]) == 1 or int(placa_lista[4]) == 2:
-            print("Tu dia de pico y placa es el dia viernes")
-        elif int(placa_lista[4]) == 3 or int(placa_lista[4]) == 4:
-            print("Tu dia de pico y placa es el dia Lunes")
-        elif int(placa_lista[4]) == 5 or int(placa_lista[4]) == 6:
-            print("Tu dia de pico y placa es el dia martes")
-        elif int(placa_lista[4]) == 7 or int(placa_lista[4]) == 8:
-            print("Tu dia de pico y placa es el dia miercoles")
-except:
-    print("El formato de placa que ingresaste no es valido ")
+placa = input("Ingresa la placa de tu vehiculo: ")
+placa = placa.upper()  # Convertir la placa a mayúsculas
+# Verificar el formato de la placa utilizando una expresión regular
+if not re.match(r'^[A-Z]{3}\d{3}$', placa) and not re.match(r'^[A-Z]{3}\d{2}[A-Z]$', placa):
+    print("La placa ingresada no es válida.")
+else:
+    if len(placa) == 6:
+        if placa[5].isdigit():
+            ultimo_digito = placa[-1]
+        else:
+            ultimo_digito = placa[-2]
+
+        if ultimo_digito in ["1", "2"]:
+            print("Tienes pico y placa el día lunes")
+        elif ultimo_digito in ["3", "4"]:
+            print("Tienes pico y placa el día martes")
+        elif ultimo_digito in ["5", "6"]:
+            print("Tienes pico y placa el día miércoles")
+        elif ultimo_digito in ["7", "8"]:
+            print("Tienes pico y placa el día jueves")
+        elif ultimo_digito in ["9", "0"]:
+            print("Tienes pico y placa el día viernes")

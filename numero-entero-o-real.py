@@ -12,3 +12,4 @@ elif numero.isdigit():
     print(f"El numero {numero} ingresado es un entero")
 else:
     print("Dato ingresado no es valido")
+
