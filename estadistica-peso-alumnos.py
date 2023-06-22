@@ -1,3 +1,4 @@
+
 def CantidadLista(datoLista):
     numeroLista = ""
     if datoLista < 40:
